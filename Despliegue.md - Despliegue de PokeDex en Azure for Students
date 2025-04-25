@@ -24,8 +24,8 @@ Este documento explica cómo desplegar la aplicación PokeDex en Azure for Stude
 3. **Configurar la Web App**
    - **Suscripción:** Elige tu suscripción de Azure for Students.
    - **Grupo de recursos:** Crea uno nuevo o usa uno existente.
-   - **Nombre:** Asigna un nombre único a tu aplicación (ej: `pokedex-app`).
-   - **Sistema operativo:** Selecciona **Linux**.
+   - **Nombre:** Asigna un nombre único a tu aplicación ( pokedex).
+   - **Sistema operativo:** Selecciona **wimdows**.
    - **Región:** Elige la más cercana a tu ubicación.
    - **Plan de servicio:** Selecciona **"Free F1"** (gratuito para estudiantes).
    - Haz clic en **"Revisar y crear"** y luego en **"Crear"**.
