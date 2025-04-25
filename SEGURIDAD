@@ -1,2 +1,31 @@
-https://witty-river-07a1bf410.6.azurestaticapps.net/
-                
+Configuración de Seguridad Paso a Paso para el Repositorio PokeDex
+1. Configuración Básica de Seguridad en GitHub
+Proteger la rama principal:
+
+Ve a Settings > Branches
+
+Añade una branch protection rule para main
+
+Activa:
+
+✅ "Require pull request before merging"
+
+✅ "Require status checks to pass"
+
+✅ "Require signed commits" (opcional pero recomendado)
+
+Gestionar accesos:
+
+Settings > Collaborators & teams
+
+Asigna permisos mínimos necesarios (solo "Read" para colaboradores externos)
+
+2. Configuración de Seguridad en Azure App Service
+# Pasos en Azure Portal:
+1. Ir a #"App Service" > Tu aplicación > #"Configuración TLS/SSL"
+   - Activar "HTTPS Only"
+   - Configurar "TLS 1.2" como versión mínima
+
+2. En "Authentication/Authorization":
+   - Habilitar "App Service Authentication"
+   - Seleccionar proveedor (ej: Azure AD, GitHub)
