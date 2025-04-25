@@ -1,0 +1,60 @@
+# Guía de Despliegue de PokeDex en Azure for Students
+
+## Prerrequisitos
+- Cuenta Azure for Students activa (ver README.md)
+- Código fuente de PokeDex clonado localmente
+- Azure CLI instalado (opcional pero recomendado)
+
+## Paso 1: Crear un App Service
+1. En el portal de Azure, busca **"App Services"**
+2. Haz clic en **"Crear"** > **"Aplicación web"**
+3. Configura los parámetros básicos:
+   - Suscripción: Azure for Students
+   - Grupo de recursos: Crear nuevo (ej: "PokeDex-RG")
+   - Nombre: pokedex-[tus iniciales]
+   - Publicar: Código
+   - Pila en tiempo de ejecución: Node.js (o la adecuada para el proyecto)
+   - Sistema operativo: Linux (menor costo)
+   - Región: Este de EE. UU. (u otra disponible)
+4. Selecciona el plan de App Service:
+   - Crear nuevo plan (F1 gratis o B1 básico)
+   - SKU y tamaño: F1 (gratis con limitaciones)
+
+## Paso 2: Desplegar el código
+### Opción 1: Desde GitHub
+1. En la sección **"Centro de implementación"** de tu App Service
+2. Selecciona GitHub como fuente
+3. Autoriza la conexión con tu cuenta
+4. Selecciona el repositorio y rama
+5. Configura la implementación continua si es necesario
+
+### Opción 2: Desde CLI
+1. Instala Azure CLI: `curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash`
+2. Inicia sesión: `az login`
+3. Navega al directorio del proyecto
+4. Ejecuta: `az webapp up --sku F1 --name pokedex-[nombre] --location eastus`
+
+## Paso 3: Configurar seguridad
+1. En la configuración de tu App Service:
+   - Habilitar HTTPS: Configuración SSL > "Solo HTTPS"
+   - Configurar TLS: Mínimo 1.2
+2. Agregar encabezados de seguridad:
+   - Crear archivo `web.config` (para Windows) o `.htaccess` (Linux) con:
+     ```
+     <customHeaders>
+       <add name="X-Frame-Options" value="DENY"/>
+       <add name="X-Content-Type-Options" value="nosniff"/>
+       <add name="Content-Security-Policy" value="default-src 'self'"/>
+       <add name="Strict-Transport-Security" value="max-age=63072000"/>
+     </customHeaders>
+     ```
+
+## Paso 4: Verificar despliegue
+1. Visita la URL de tu aplicación (https://[nombre].azurewebsites.net)
+2. Verifica que la PokeDex funciona correctamente
+3. Realiza pruebas de seguridad en securityheaders.com
+
+## Solución de problemas comunes
+- Error 404: Verificar ruta de implementación
+- Sin crédito: Cambiar a plan F1 gratis
+- Problemas de autenticación: Verificar permisos en Azure AD
