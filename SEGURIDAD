@@ -22,10 +22,84 @@ Asigna permisos mínimos necesarios (solo "Read" para colaboradores externos)
 
 2. Configuración de Seguridad en Azure App Service
 # Pasos en Azure Portal:
-1. Ir a #"App Service" > Tu aplicación > #"Configuración TLS/SSL"
+1. Ir a "App Service" > Tu aplicación > "Configuración TLS/SSL"
    - Activar "HTTPS Only"
    - Configurar "TLS 1.2" como versión mínima
 
-2. En "Authentication/Authorization":
+# 2. En "Authentication/Authorization":
    - Habilitar "App Service Authentication"
    - Seleccionar proveedor (ej: Azure AD, GitHub)
+# 3. Encabezados de Seguridad (web.config)
+Añade este archivo en la raíz del proyecto:
+<configuration>
+  <system.webServer>
+    <httpProtocol>
+      <customHeaders>
+        <add name="X-Content-Type-Options" value="nosniff" />
+        <add name="X-Frame-Options" value="DENY" />
+        <add name="Content-Security-Policy" 
+             value="default-src 'self'; script-src 'self' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'" />
+        <add name="Strict-Transport-Security" value="max-age=63072000; includeSubDomains; preload" />
+      </customHeaders>
+    </httpProtocol>
+    <rewrite>
+      <rules>
+        <rule name="Redirect HTTP to HTTPS" stopProcessing="true">
+          <match url="(.*)" />
+          <conditions>
+            <add input="{HTTPS}" pattern="^OFF$" />
+          </conditions>
+          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" />
+        </rule>
+      </rules>
+    </rewrite>
+  </system.webServer>
+</configuration>
+# 4 Variables de Entorno Seguras
+En Azure Portal:
+
+Configuración > Configuration > Application settings
+
+Añadir variables sensibles como:
+
+DB_CONNECTION_STRING (valor cifrado)
+
+API_KEYS
+
+En GitHub:
+
+Settings > Secrets and variables > Actions
+
+Añadir secrets para CI/CD
+
+# 5 Escaneo de Seguridad
+# Herramientas gratuitas:
+1. Ejecutar en local:
+   npm audit  # Para dependencias de Node.js
+   npx snyk test  # Análisis de vulnerabilidades
+
+2. Escanear online:
+   - https://securityheaders.com (para headers HTTP)
+   - https://observatory.mozilla.org (análisis completo)
+6. Monitorización Post-Despliegue
+En Azure:
+
+Activar "Azure Security Center"
+
+Configurar alertas para:
+
+Intentos de login fallidos
+
+Tráfico anómalo
+
+En GitHub:
+
+Habilitar "Dependabot alerts" en Security
+
+Resultado Esperado
+✔️ Repositorio GitHub con ramas protegidas
+✔️ Aplicación con HTTPS + headers de seguridad (A+ en securityheaders.com)
+✔️ Credenciales protegidas (nunca en código)
+✔️ Monitorización activa de vulnerabilidades
+
+
