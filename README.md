@@ -1,6 +1,6 @@
 # <img src="assets/pokedex-icon.png" width="30"> PokeDex en Azure
 
-![Banner](assets/banner.png)
+
 
 > Aplicación web para explorar Pokémon desplegada en Azure for Students
 
