@@ -1,15 +1,24 @@
 Tecnologías Usadas
-Plataforma Cloud
-✅ Azure for Students (App Service para despliegue)
+Tecnologías Clave para la Aplicación Pokedex
+Frontend
+🖥️ HTML5, CSS3, JavaScript - Base del interfaz web
+⚛️ React.js (o similar) - Para componentes interactivos y dinámicos
 
-Herramientas
-🔧 Git/GitHub - Control de versiones
-📝 StackEdit - Documentación en Markdown
+Backend (si aplica)
+🌐 Node.js con Express - Manejo de API y lógica del servidor
+🗃️ MongoDB/PostgreSQL - Almacenamiento de datos de Pokémon
+
+Cloud y Deployment
+☁️ Azure App Service - Hosting de la aplicación
+🔄 GitHub Actions - CI/CD para despliegues automáticos
 
 Seguridad
-🔒 Encabezados HTTP (CSP, HSTS, X-Frame-Options)
-🛡️ Auditoría con securityheaders.com (A+)
+🔒 HTTPS - Conexiones encriptadas
+🛡️ CORS configurado - Restricción de dominios permitidos
 
-Opcionales
-⚡ OWASP ZAP - Pruebas de penetración
-📊 Azure Monitor - Supervisión
+Optimización
+🚀 Azure CDN - Entrega rápida de assets estáticos
+📱 Diseño Responsive - Adaptable a móviles y tablets
+
+APIs Externas
+🔗 PokeAPI - Fuente principal de datos de Pokémon
