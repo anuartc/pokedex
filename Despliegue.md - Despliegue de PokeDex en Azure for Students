@@ -47,7 +47,7 @@ Este documento explica cómo desplegar la aplicación PokeDex en Azure for Stude
    - Guarda los cambios.
 
 6. **Probar la Aplicación**
-   - Accede a la URL de tu aplicación (ej: `https://pokedex-app.azurewebsites.net`).
+   - Accede a la URL de tu aplicación (https://witty-river-07a1bf410.6.azurestaticapps.net).
    - Verifica que la PokeDex funcione correctamente.
 
 7. **Escaneo de Seguridad**
@@ -59,3 +59,4 @@ Este documento explica cómo desplegar la aplicación PokeDex en Azure for Stude
 - Para mayor seguridad, considera usar herramientas como **OWASP ZAP** (opcional).
 
 ¡Felicitaciones! La PokeDex está desplegada y segura en Azure for Students.
+link de la aplicion https://witty-river-07a1bf410.6.azurestaticapps.net
