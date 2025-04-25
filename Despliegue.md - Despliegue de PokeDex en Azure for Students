@@ -1,0 +1,61 @@
+# Tutorial: Despliegue de PokeDex en Azure for Students
+
+Este documento explica cómo desplegar la aplicación PokeDex en Azure for Students.
+
+## Requisitos Previos
+- Cuenta activa en Azure for Students (ver [README.md](README.md)).
+- Código fuente de PokeDex (disponible en el enlace proporcionado por Pueblo Paleta Inc.).
+- Git instalado en tu computadora.
+
+## Pasos para el Despliegue
+
+1. **Clonar el Repositorio**
+   - Abre una terminal y ejecuta:
+     ```bash
+     git clone [URL del repositorio de PokeDex]
+     cd pokedex
+     ```
+
+2. **Preparar el Entorno en Azure**
+   - Inicia sesión en el [Portal de Azure](https://portal.azure.com/).
+   - Haz clic en **"Crear un recurso"** y busca **"App Service"**.
+   - Selecciona **"Web App"** y haz clic en **"Crear"**.
+
+3. **Configurar la Web App**
+   - **Suscripción:** Elige tu suscripción de Azure for Students.
+   - **Grupo de recursos:** Crea uno nuevo o usa uno existente.
+   - **Nombre:** Asigna un nombre único a tu aplicación (ej: `pokedex-app`).
+   - **Sistema operativo:** Selecciona **Linux**.
+   - **Región:** Elige la más cercana a tu ubicación.
+   - **Plan de servicio:** Selecciona **"Free F1"** (gratuito para estudiantes).
+   - Haz clic en **"Revisar y crear"** y luego en **"Crear"**.
+
+4. **Desplegar el Código**
+   - Una vez creada la Web App, ve a su panel de control.
+   - En **"Opciones de despliegue"**, selecciona **GitHub** o **Local Git**.
+   - Sigue las instrucciones para conectar tu repositorio y desplegar el código.
+
+5. **Configurar Encabezados de Seguridad**
+   - Ve a **"Configuración"** > **"Configuración general"**.
+   - Agrega los siguientes encabezados HTTP:
+     ```
+     Content-Security-Policy: default-src 'self'
+     X-Frame-Options: DENY
+     X-Content-Type-Options: nosniff
+     Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+     ```
+   - Guarda los cambios.
+
+6. **Probar la Aplicación**
+   - Accede a la URL de tu aplicación (ej: `https://pokedex-app.azurewebsites.net`).
+   - Verifica que la PokeDex funcione correctamente.
+
+7. **Escaneo de Seguridad**
+   - Visita [securityheaders.com](https://securityheaders.com/) e ingresa la URL de tu aplicación.
+   - Asegúrate de obtener una calificación **A+**.
+
+## Notas Adicionales
+- Si encuentras errores, revisa los registros en **"Registros de aplicación"** en el panel de Azure.
+- Para mayor seguridad, considera usar herramientas como **OWASP ZAP** (opcional).
+
+¡Felicitaciones! La PokeDex está desplegada y segura en Azure for Students.
