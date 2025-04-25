@@ -1,0 +1,38 @@
+# Tutorial: Creación de Cuenta en Azure for Students
+
+Este tutorial explica paso a paso cómo crear una cuenta en Azure for Students para desplegar la aplicación PokeDex.
+
+## Requisitos Previos
+- Una cuenta de correo institucional válida (.edu o similar).
+- Acceso a internet.
+
+## Pasos para Crear la Cuenta
+
+1. **Acceder al Portal de Azure for Students**
+   - Visita el sitio oficial: [Azure for Students](https://azure.microsoft.com/es-es/free/students/).
+   - Haz clic en el botón **"Activar ahora"**.
+
+2. **Iniciar Sesión con tu Cuenta Institucional**
+   - Ingresa tu correo institucional y contraseña.
+   - Si no tienes una cuenta institucional, contacta a tu institución para obtener una.
+
+3. **Verificar tu Identidad**
+   - Proporciona los datos solicitados (nombre, institución, etc.).
+   - Azure puede requerir verificación adicional, como un número de teléfono.
+
+4. **Aceptar los Términos y Condiciones**
+   - Lee y acepta los términos de servicio y la política de privacidad.
+
+5. **Finalizar el Registro**
+   - Una vez completado el proceso, recibirás un correo de confirmación.
+   - Ahora tendrás acceso al portal de Azure con un crédito inicial para estudiantes.
+
+6. **Acceder al Portal de Azure**
+   - Visita [Portal de Azure](https://portal.azure.com/).
+   - Inicia sesión con tu cuenta institucional.
+
+7. **Configuración Inicial (Opcional)**
+   - Explora el panel de control y familiarízate con las opciones.
+   - Configura una suscripción si es necesario.
+
+¡Listo! Ahora tienes una cuenta activa en Azure for Students para desplegar tu aplicación.
