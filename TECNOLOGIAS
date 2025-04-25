@@ -1,0 +1,15 @@
+Tecnologías Usadas
+Plataforma Cloud
+✅ Azure for Students (App Service para despliegue)
+
+Herramientas
+🔧 Git/GitHub - Control de versiones
+📝 StackEdit - Documentación en Markdown
+
+Seguridad
+🔒 Encabezados HTTP (CSP, HSTS, X-Frame-Options)
+🛡️ Auditoría con securityheaders.com (A+)
+
+Opcionales
+⚡ OWASP ZAP - Pruebas de penetración
+📊 Azure Monitor - Supervisión
